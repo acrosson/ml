@@ -1,1 +1,1 @@
-# A collection of assorted Machine Learning projects
+# Various Machine Learning projects
