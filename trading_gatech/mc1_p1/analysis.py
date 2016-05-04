@@ -39,7 +39,6 @@ def assess_portfolio(sd = dt.datetime(2008,1,1), ed = dt.datetime(2009,1,1), \
 
     # Compare daily portfolio value with SPY using a normalized plot
     if gen_plot:
-        # add code to plot here
         df_temp = pd.concat([port_val, prices_SPY], keys=['Portfolio', 'SPY'], axis=1)
         df_temp = df_temp / df_temp.ix[0, :]
         df_temp.plot()
