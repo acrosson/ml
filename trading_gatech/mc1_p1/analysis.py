@@ -32,7 +32,7 @@ def assess_portfolio(sd = dt.datetime(2008,1,1), ed = dt.datetime(2009,1,1), \
 
     # Get portfolio statistics (note: std_daily_ret = volatility)
     portfolio_returns = (port_val / port_val.shift(1) - 1).fillna(0)
-    cr = portfolio_returns.cumsum()[-1]
+    cr = (portfolio_returns + 1).cumprod()[-1] - 1
     adr = portfolio_returns.mean()
     sddr = portfolio_returns.std()
     sr = ((adr - 0) / sddr) * m.sqrt(252) # assuming risk free rate is zero

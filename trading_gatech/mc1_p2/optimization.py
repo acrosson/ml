@@ -57,7 +57,7 @@ def calc_portfolio_stats(allocs, normalized_prices, sv):
 
     # Get portfolio statistics
     portfolio_returns = (port_val / port_val.shift(1) - 1).fillna(0)
-    cr = portfolio_returns.cumsum()[-1]
+    cr = (portfolio_returns + 1).cumprod()[-1] - 1
     adr = portfolio_returns.mean()
     sddr = portfolio_returns.std()
     sr = ((adr - 0) / sddr) * m.sqrt(252)
